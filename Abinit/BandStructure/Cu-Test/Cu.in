@@ -34,13 +34,12 @@
  nband   20
  znucl  29
 
-#band structure 
+# Bandstructure 
 
 iscf2    -2
 getden2  -1
-kptopt2  -6  # will have three segments in the band structure
-ndivsm2  30   # 10 divisions of the smallest of the 3 segments, delimited
-                    # by the 4 points defined by kptbounds.
+kptopt2  -6  
+ndivsm2  30     
 
 kptbounds2  0.0    0.0    0.0   # G
             0.0    0.5    0.5   # X
