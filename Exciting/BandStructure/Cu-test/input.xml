@@ -1,0 +1,39 @@
+<input>
+    <title>Cu</title>
+    <structure speciespath="./">
+	<crystal scale="6.9359">
+		<basevect>0.0   0.5   0.5</basevect>
+		<basevect>0.5   0.0   0.5</basevect>
+		<basevect>0.5   0.5   0.0</basevect>
+	</crystal>
+	<species speciesfile="Cu.xml" rmt="1.5">
+		<atom coord="0.00 0.00 0.00"/>
+	</species>
+   </structure> 
+   <groundstate 
+       ngridk="11 11 11"
+        outputlevel="normal"
+        xctype="GGA_PBE"
+        swidth="0.01"
+        rgkmax="8.0"
+        nempty="10"
+        epsengy="5.0d-5"
+        do="skip">
+   </groundstate>
+   <properties>
+   	<bandstructure>
+   		<plot1d>
+   			<path steps="240">
+   				<point coord="0.000   0.000   0.000" label="GAMMA"></point> 
+   				<point coord="0.500   0.500   0.000" label="X"></point>
+   				<point coord="0.750   0.500   0.250" label="W"></point>
+    				<point coord="0.500   0.500   0.500" label="L"></point>
+   				<point coord="0.000   0.000   0.000" label="GAMMA"></point>
+   				<point coord="0.750   0.375   0.375" label="K"></point>
+   				<point coord="0.500   0.500   0.000" label="X"></point>   				  
+   			</path>
+   		</plot1d>
+   	</bandstructure>
+   </properties>
+   
+ </input>
