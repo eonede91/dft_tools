@@ -17,8 +17,7 @@
         swidth="0.01"
         rgkmax="8.0"
         nempty="10"
-        epsengy="5.0d-5"
-        do="skip">
+        epsengy="5.0d-5">
    </groundstate>
    <properties>
    	<bandstructure>
