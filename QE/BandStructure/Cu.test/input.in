@@ -1,0 +1,29 @@
+ #  ----------------------------------------------------------#
+ #                     Jacques R. Eone                        #
+ #          Quantum Espresso  input file (Cu FCC)             #
+ #                        May - 2021                          #
+ #  ----------------------------------------------------------#
+&control
+  calculation='scf'
+  tstress=.true.
+  restart_mode='from_scratch'
+  pseudo_dir = './'
+/
+ 
+&system
+   ibrav=2,  celldm(1) =6.884688,
+   nat=1, ntyp=1,
+   ecutwfc =100.0,
+   occupations='smearing', smearing='marzari-vanderbilt', degauss=0.01,
+   nspin = 1
+/
+&electrons
+  /
+ATOMIC_SPECIES
+  Cu  63.546  Cu.pbe.UPF
+ATOMIC_POSITIONS (crystal)
+Cu   0.00 0.00 0.00
+
+
+K_POINTS {automatic}
+    11 11 11 1 1 1  

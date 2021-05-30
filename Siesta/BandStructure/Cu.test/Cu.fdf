@@ -1,0 +1,70 @@
+ #  ----------------------------------------------------------#
+ #                     Jacques R. Eone                        #
+ #             Siesta sample  input file (Cu FCC)             #
+ #                        May - 2021                          #
+ #              BandPath    ---> G-X-W-L-G-K-X                #  
+ #  ----------------------------------------------------------#
+SystemName         Cu  bulk
+SystemLabel        Cu
+NumberOfSpecies   1
+NumberOfAtoms     1
+WriteMullikenPop  1
+ 
+%block ChemicalSpeciesLabel
+  1   29 Cu   
+%endblock ChemicalSpeciesLabel
+
+
+# Basis
+PAO.EnergyShift       225 meV
+PAO.SplitNorm         0.45
+
+
+# Structure
+%block LatticeVectors
+ 0.50000  0.50000  0.000000
+ 0.50000  0.00000  0.500000
+ 0.00000  0.50000  0.500000
+%endblock LatticeVectors
+
+# scale of the k vectors given in bandLines is pi/a
+# if bandLines not given no band energies calculation is performed
+KgridCutoff           15. Ang
+xc.functional         GGA	   # Exchange-correlation functional
+xc.authors            PBE           # Exchange-correlation version
+SpinPolarized         F            # Logical parameters are: yes or no
+MeshCutoff            250. Ry        # Mesh cutoff. real space mesh
+# SCF options
+MaxSCFIterations      5000          # Maximum number of SCF iter
+DM.MixingWeight       0.01          # New DM amount for next SCF cycle
+DM.Tolerance          1.d-4         # Tolerance in maximum difference
+                                    # between input and output DM
+DM.UseSaveDM          true          # to use continuation files
+DM.NumberPulay         5
+SolutionMethod        diagon        # OrderN or Diagon
+
+
+AtomicCoordinatesFormat  Fractional
+%block AtomicCoordinatesAndAtomicSpecies
+ 0.00000   0.000000  0.000000  1
+%endblock AtomicCoordinatesAndAtomicSpecies
+
+
+%block ProjectedDensityOfStates
+-20.0 20.0 0.1 2000 eV
+%endblock ProjectedDensityOfStates
+
+# Band options
+BandLinesScale      pi/a
+%block BandLines
+1    0.0   0.0   0.0   \Gamma
+40   0.0   2.0   0.0   X
+40   1.0   2.0   0.0   W
+40   1.0   1.0   1.0   L
+40   0.0   0.0   0.0   \Gamma
+40   1.5   1.5   0.0   K
+40   0.0   2.0   0.0   X
+%endblock BandLines
+
+
+LatticeConstant       3.70895 Ang

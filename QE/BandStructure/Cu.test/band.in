@@ -1,0 +1,6 @@
+&bands    
+    outdir = '.',
+    prefix='pwscf', 
+    filband='Cu.band',
+    lsym=.true. 
+/ 

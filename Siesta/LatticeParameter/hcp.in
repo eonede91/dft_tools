@@ -1,0 +1,59 @@
+
+# Basis
+
+PAO.EnergyShift       225 meV
+PAO.SplitNorm         0.45
+
+# Structure
+%block LatticeVectors
+  1.00000         0.00000000000000      0.00000
+ -0.50000         0.86602540378444      0.00000
+  0.00000         0.00000000000000      1.62000
+%endblock LatticeVectors
+
+# scale of the k vectors given in bandLines is pi/a
+# if bandLines not given no band energies calculation is performed
+KgridCutoff           15. Ang
+xc.functional         GGA	   # Exchange-correlation functional
+xc.authors            PBE           # Exchange-correlation version
+SpinPolarized         F            # Logical parameters are: yes or no
+MeshCutoff            250. Ry        # Mesh cutoff. real space mesh
+# SCF options
+MaxSCFIterations      4000          # Maximum number of SCF iter
+DM.MixingWeight       0.01          # New DM amount for next SCF cycle
+DM.Tolerance          1.d-4         # Tolerance in maximum difference
+                                    # between input and output DM
+DM.UseSaveDM          true          # to use continuation files
+DM.NumberPulay         5
+SolutionMethod        diagon        # OrderN or Diagon
+#ElectronicTemperature  100 k       # Temp. for Fermi smearing
+# MD options
+
+
+BandLinesScale      pi/a
+%block BandLines
+1    0.0      0.0       0.0        \Gamma
+40   1.0     -0.57735   0.0        M
+40   1.0     -0.57735   0.621118   L
+40   0.0      0.0       0.621118   A
+40   0.0      0.0       0.0        \Gamma
+40   1.33333  0.0       0.0        K
+40   1.33333  0.0       0.621118   H
+40   0.0      0.0       0.621118   A
+%endblock BandLines
+
+
+# Atomic coordinates
+AtomicCoordinatesFormat  Fractional
+%block AtomicCoordinatesAndAtomicSpecies
+ 0.00000000000000    0.00000000000000   0.000000  1
+ 0.33333333333333    0.66666666666667   0.500000  1
+%endblock AtomicCoordinatesAndAtomicSpecies
+
+
+%block ProjectedDensityOfStates
+-20.0 20.0 0.1 2000 eV
+%endblock ProjectedDensityOfStates
+
+
+

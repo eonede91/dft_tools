@@ -1,0 +1,37 @@
+ #  ----------------------------------------------------------#
+ #                     Jacques R. Eone                        #
+ #          Quantum Espresso  input file (Cu FCC)             #
+ #                        May - 2021                          #
+ #              BandPath    ---> G-X-W-L-G-K-X                #  
+ #  ----------------------------------------------------------#
+&control
+  calculation='bands'
+  tstress=.true.
+  restart_mode='from_scratch'
+  pseudo_dir = './'
+/
+ 
+&system
+   ibrav=2,  celldm(1) =6.884688,
+   nat=1, ntyp=1,
+   ecutwfc =100.0,
+   occupations='smearing', smearing='marzari-vanderbilt', degauss=0.01,
+   nspin = 1
+/
+&electrons
+  /
+ATOMIC_SPECIES
+  Cu  63.546  Cu.pbe.UPF
+ATOMIC_POSITIONS (crystal)
+Cu   0.00 0.00 0.00
+
+
+K_POINTS {crystal_b}
+7
+  0.00  0.00  0.00  40 !G
+  0.50  0.00  0.50  40 !X
+  0.50  0.25  0.75  40 !W
+  0.50  0.50  0.50  40 !L
+  0.00  0.00  0.00  40 !G
+  0.375 0.375 0.75  40 !K
+  0.50  0.00  0.50  40 !X

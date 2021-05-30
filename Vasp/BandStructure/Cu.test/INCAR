@@ -1,0 +1,6 @@
+System = Cu fcc
+PREC   = MEDIUM
+ICHARG = 11
+ENCUT  = 300
+ISTART = 0
+ISPIN  = 1
